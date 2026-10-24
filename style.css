@@ -229,3 +229,17 @@ footer{border-top:2px solid var(--ligne);padding-block:28px 40px;color:var(--gri
 .apropos img{width:100%;max-width:220px;aspect-ratio:1;object-fit:cover;border-radius:50%;border:4px solid var(--jaune)}
 .apropos .txt{display:grid;gap:12px;font-size:18px;max-width:60ch}
 .apropos .txt p{margin:0}
+.vote .compte{display:grid;grid-template-columns:1fr auto;align-items:center;gap:8px;padding:0 10px 10px}
+.vote .jauge{height:6px;background:var(--ligne);display:block;overflow:hidden}
+.vote .jauge b{display:block;height:100%;width:0;background:var(--jaune);transition:width .6s}
+.vote .nb{font:500 12px var(--mono);font-style:normal;color:var(--gris);white-space:nowrap}
+.vote.en-tete{border-color:var(--jaune)}
+.vote.en-tete .jauge b{background:var(--rouge)}
+.vote.en-tete .nb{color:var(--jaune)}
+.podium{border:2px solid var(--jaune);background:var(--carton);padding:16px 18px;margin-bottom:16px;display:grid;gap:8px}
+.podium .rang{display:grid;grid-template-columns:36px 1fr auto;align-items:baseline;gap:10px;border-top:1px dashed var(--ligne);padding-top:8px}
+.podium .pos{font-family:var(--display);font-size:28px;color:var(--jaune);line-height:1}
+.podium .rang:nth-child(2) .pos{color:var(--rouge)}
+.podium a{font-weight:800;text-decoration:none;color:var(--creme);min-width:0}
+.podium a:hover{color:var(--jaune)}
+.podium b{font-family:var(--display);font-weight:400;font-size:24px;color:var(--jaune)}

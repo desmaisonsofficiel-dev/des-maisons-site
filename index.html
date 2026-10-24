@@ -79,9 +79,10 @@
         <div>
           <div class="label">Le vote · <span data-mois>ce mois-ci</span></div>
           <h2>La pire maison du mois.</h2>
-          <p>Toi, tu achètes laquelle juste pour la revendre? Un vote par personne. Le verdict sort dans un épisode.</p>
+          <p>Laquelle mérite le titre? Un vote par personne, les résultats bougent en direct. Le verdict sort dans un épisode à la fin du mois.</p>
         </div>
       </div>
+      <div class="podium" id="podium" hidden></div>
       <div class="votes" id="votes"></div>
       <p class="vote-msg" hidden></p>
     </div>
@@ -468,7 +469,7 @@ function rendreCarnet(){
 }
 rendreCarnet();
 // Vote : toutes les maisons du site
-document.getElementById("votes").innerHTML=[...MAISONS,...CARNET].map(m=>`<button class="vote" type="button" data-vote="${m.slug}" data-nom="${m.nom}" aria-pressed="false"><img src="${m.photo}" alt="" loading="lazy"><span>${m.nom}</span></button>`).join("");
+document.getElementById("votes").innerHTML=[...MAISONS,...CARNET].map(m=>`<button class="vote" type="button" data-vote="${m.slug}" data-nom="${m.nom}" aria-pressed="false"><img src="${m.photo}" alt="" loading="lazy"><span>${m.nom}</span><span class="compte"><i class="jauge"><b></b></i><em class="nb"></em></span></button>`).join("");
 
 
 </script>
