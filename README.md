@@ -1,9 +1,18 @@
-# Des Maisons. — site web
+# desmaisons.ca
 
-Site de la chaîne Des Maisons. (immobilier insolite, mon opinion et trop de café).
+Site de Des Maisons, hébergé sur Netlify (mise à jour automatique à chaque push sur `main`).
 
-- `index.html` : le site complet
-- `images/` : les photos du site
-- `media-kit.pdf` : le média kit téléchargeable
+## Ajouter une maison
+1. Mettre la photo dans `images/`.
+2. Ajouter un bloc dans `data.js` (MAISONS = épisodes, CARNET = maisons sans vidéo). Le `slug` devient l'adresse : desmaisons.ca/<slug>/
+3. Lancer `node build.js` (génère les pages par maison, sitemap.xml et robots.txt).
+4. Commit + push.
 
-Hébergé sur Netlify : chaque changement poussé sur `main` est mis en ligne automatiquement.
+## Fichiers
+- `index.html` : page d'accueil
+- `data.js` : toutes les maisons
+- `style.css` : styles partagés
+- `site.js` : vidéo, infolettre, vote, compteur
+- `build.js` : générateur des pages maison
+- Formulaires Netlify : soumission-maison, commandite, infolettre
+- Statistiques et votes : GoatCounter (desmaisons.goatcounter.com)
