@@ -54,6 +54,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;margin:0;l
 .lien .ico-yt,.lien.fort .ico-yt{background:#ff0000}
 .lien .ico-tt{background:#000;box-shadow:inset 0 0 0 1px #3a3631}
 .lien .ico-fb{background:#0866ff}
+.envoi .merci{margin:0 0 12px;font-size:1.05rem;line-height:1.45}
 .lien .ico-tw{background:#9146ff}
 .lien .ico-ig{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285aeb 90%)}
 .lien .ico-bmc{background:#ffdd00}
@@ -257,37 +258,39 @@ footer{border-top:2px solid var(--ligne);padding-block:28px 40px;color:var(--gri
         </div>
       </div>
       <div class="duo">
-        <form class="form" id="form-maison" novalidate>
+        <form class="form" id="form-maison" name="soumission-maison" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+          <input type="hidden" name="form-name" value="soumission-maison"><p hidden><label>Ne pas remplir <input name="bot-field"></label></p>
           <div class="champ">
             <label for="m-lien">Lien de l'annonce</label>
-            <input id="m-lien" type="url" inputmode="url" placeholder="https://www.zillow.com/…" required>
+            <input id="m-lien" name="lien" type="url" inputmode="url" placeholder="https://www.zillow.com/…" required>
           </div>
           <div class="champ">
             <label for="m-lieu">Où est-elle?</label>
-            <input id="m-lieu" type="text" placeholder="Ville, État ou pays">
+            <input id="m-lieu" name="lieu" type="text" placeholder="Ville, État ou pays">
           </div>
           <div class="champ">
             <label for="m-pourquoi">Qu'est-ce qui t'a arrêté?</label>
             <span class="aide">Une phrase suffit. « Il y a un aquarium dans le plancher de la cuisine » est une excellente phrase.</span>
-            <textarea id="m-pourquoi" required></textarea>
+            <textarea id="m-pourquoi" name="pourquoi" required></textarea>
           </div>
           <div class="champ">
             <label for="m-nom">Ton nom ou ton @ <span class="aide">(pour te créditer)</span></label>
-            <input id="m-nom" type="text" placeholder="@toi">
+            <input id="m-nom" name="nom" type="text" placeholder="@toi">
           </div>
           <p class="erreur" id="m-erreur" hidden></p>
-          <button class="btn" type="submit">Préparer ma soumission</button>
+          <button class="btn" type="submit">Envoyer ma soumission</button>
         </form>
         <div class="envoi-zone">
           <ol class="etapes" id="m-etapes">
             <li><span class="n">1</span><div><b>Remplis la fiche</b><span>Le lien et une phrase, c'est tout ce qu'il faut.</span></div></li>
-            <li><span class="n">2</span><div><b>Copie ta soumission</b><span>On la met en forme pour toi.</span></div></li>
-            <li><span class="n">3</span><div><b>Envoie-la en message</b><span>Sur Instagram ou Facebook. Je lis tout. Lentement, avec un café.</span></div></li>
+            <li><span class="n">2</span><div><b>Envoie-la</b><span>Elle arrive directement dans ma boîte courriel.</span></div></li>
+            <li><span class="n">3</span><div><b>Je lis tout</b><span>Lentement, avec un café.</span></div></li>
           </ol>
           <div class="envoi" id="m-envoi" hidden>
-            <div class="label">Ta soumission</div>
+            <div class="label" id="m-label">Ta soumission</div>
+            <p class="merci" id="m-merci" hidden></p>
             <pre id="m-texte"></pre>
-            <div class="actions">
+            <div class="actions" id="m-actions">
               <button class="btn" type="button" data-copier="m-texte">Copier</button>
               <a class="btn secondaire" href="https://ig.me/m/des.maisons.officiel" target="_blank" rel="noopener">Envoyer sur Instagram</a>
               <a class="btn secondaire" href="https://m.me/DesMaisonsreact" target="_blank" rel="noopener">Envoyer sur Facebook</a>
@@ -415,20 +418,22 @@ footer{border-top:2px solid var(--ligne);padding-block:28px 40px;color:var(--gri
       </div>
 
       <div class="duo" style="margin-top:32px">
-        <form class="form" id="form-pub" novalidate>
-          <div class="champ"><label for="p-marque">Nom de la marque</label><input id="p-marque" type="text" required></div>
-          <div class="champ"><label for="p-contact">Ton courriel ou ton téléphone</label><input id="p-contact" type="text" required></div>
+        <form class="form" id="form-pub" name="commandite" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+          <input type="hidden" name="form-name" value="commandite"><p hidden><label>Ne pas remplir <input name="bot-field"></label></p>
+          <div class="champ"><label for="p-marque">Nom de la marque</label><input id="p-marque" name="marque" type="text" required></div>
+          <div class="champ"><label for="p-contact">Ton courriel ou ton téléphone</label><input id="p-contact" name="contact" type="text" required></div>
           <div class="champ"><label for="p-formule">Formule qui t'intéresse</label>
-            <select id="p-formule"><option>La tasse</option><option>La mention</option><option>La présentation</option><option>Je ne sais pas encore</option></select></div>
-          <div class="champ"><label for="p-produit">Ce que vous vendez</label><textarea id="p-produit" placeholder="Du café, des thermopompes, des assurances habitation…"></textarea></div>
+            <select id="p-formule" name="formule"><option>L’espresso</option><option>L’allongé</option><option>La tasse (exclusif)</option><option>Je ne sais pas encore</option></select></div>
+          <div class="champ"><label for="p-produit">Ce que vous vendez</label><textarea id="p-produit" name="produit" placeholder="Du café, des thermopompes, des assurances habitation…"></textarea></div>
           <p class="erreur" id="p-erreur" hidden></p>
-          <button class="btn" type="submit">Préparer ma demande</button>
+          <button class="btn" type="submit">Envoyer ma demande</button>
         </form>
         <div class="envoi-zone">
           <div class="envoi" id="p-envoi" hidden>
-            <div class="label">Ta demande</div>
+            <div class="label" id="p-label">Ta demande</div>
+            <p class="merci" id="p-merci" hidden></p>
             <pre id="p-texte"></pre>
-            <div class="actions">
+            <div class="actions" id="p-actions">
               <button class="btn" type="button" data-copier="p-texte">Copier</button>
               <a class="btn secondaire" href="https://ig.me/m/des.maisons.officiel" target="_blank" rel="noopener">Envoyer sur Instagram</a>
               <a class="btn secondaire" href="https://m.me/DesMaisonsreact" target="_blank" rel="noopener">Envoyer sur Facebook</a>
@@ -523,14 +528,33 @@ function maj(){
 }
 maj();
 // Soumission et commandite : prépare un message à copier puis envoyer en DM
-function brancher(formId,errId,zoneId,texteId,lire){
-  const f=document.getElementById(formId);
-  f.addEventListener("submit",e=>{
+function brancher(formId,errId,zoneId,texteId,lire,merci){
+  const f=document.getElementById(formId),p=formId==="form-maison"?"m":"p";
+  f.addEventListener("submit",async e=>{
     e.preventDefault();
     const r=lire(),err=document.getElementById(errId);
     if(r.erreur){err.textContent=r.erreur;err.hidden=false;return}
     err.hidden=true;
+    const btn=f.querySelector('button[type="submit"]'),txt=btn.textContent;
+    btn.disabled=true;btn.textContent="Envoi…";
+    let ok=false;
+    try{
+      const res=await fetch("/",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:new URLSearchParams(new FormData(f)).toString()});
+      ok=res.ok;
+    }catch(x){}
+    btn.disabled=false;btn.textContent=txt;
     document.getElementById(texteId).textContent=r.texte;
+    const m=document.getElementById(p+"-merci");
+    if(ok){
+      document.getElementById(p+"-label").textContent="Reçu ✓";
+      m.textContent=merci;m.hidden=false;
+      document.getElementById(p+"-actions").hidden=true;
+      f.reset();
+    }else{
+      document.getElementById(p+"-label").textContent="Oups, l’envoi n’a pas marché";
+      m.textContent="Copie ton message et envoie-le en privé, ou écris à desmaisonsofficiel@gmail.com.";m.hidden=false;
+      document.getElementById(p+"-actions").hidden=false;
+    }
     const z=document.getElementById(zoneId);z.hidden=false;
     const intro=z.parentElement.querySelector(".etapes,#p-intro");if(intro)intro.hidden=true;
     z.scrollIntoView({behavior:"smooth",block:"nearest"});
@@ -542,12 +566,12 @@ brancher("form-maison","m-erreur","m-envoi","m-texte",()=>{
   if(!/^https?:\/\/\S+\.\S+/.test(lien))return{erreur:"Il manque le lien de l'annonce. Colle l'adresse complète, qui commence par https://."};
   if(!pq)return{erreur:"Dis-moi en une phrase ce qui t'a arrêté sur cette maison."};
   return{texte:["SOUMISSION · DES MAISONS","Lien : "+lien,v("m-lieu")?"Lieu : "+v("m-lieu"):"","Pourquoi : "+pq,v("m-nom")?"Crédit : "+v("m-nom"):""].filter(Boolean).join("\n")};
-});
+},"Merci! Ta maison est dans ma boîte. Si elle passe à l’émission, ton nom est au générique.");
 brancher("form-pub","p-erreur","p-envoi","p-texte",()=>{
   if(!v("p-marque"))return{erreur:"Indique le nom de la marque."};
   if(!v("p-contact"))return{erreur:"Laisse un courriel ou un numéro pour que je puisse te répondre."};
   return{texte:["COMMANDITE · DES MAISONS","Marque : "+v("p-marque"),"Contact : "+v("p-contact"),"Formule : "+v("p-formule"),v("p-produit")?"Produit : "+v("p-produit"):""].filter(Boolean).join("\n")};
-});
+},"Merci! Ta demande est bien arrivée. Je te réponds avec les dates disponibles et les tarifs.");
 document.querySelectorAll("[data-copier]").forEach(b=>b.addEventListener("click",()=>{
   const el=document.getElementById(b.dataset.copier),t=el.textContent;
   const ok=()=>{b.textContent="Copié ✓";setTimeout(()=>b.textContent="Copier",1500)};
