@@ -17,6 +17,12 @@ var MAISONS=[
 ];
 
 var CARNET=[
+  {slug:"stanley",nom:"Le chalet au bord du cliff",lieu:"Stanley, Idaho",annee:"2 995 000 $",cat:"Chalet",
+   photo:"/images/stanley-cliff.jpg",credit:"Photo : Sun Valley Real Estate via Zillow",
+   lien:"https://www.zillow.com/homedetails/325-Sawtooth-Ridge-Rd-Stanley-ID-83278/466126930_zpid/",
+   accroche:"Bâtie au bord d’un cliff. Le prix aussi.",
+   lignes:["2 995 000 $ US. 900 pieds carrés. Une chambre. Ça fait 3 328 $ du pied carré.", "Au Québec, avec 3 M$, t’as une maison avec un garage. Puis le garage a un garage.", "Ici, t’as 900 pieds carrés. Puis la vue.", "", "C’est deux petits chalets neufs, au bout d’une crête privée, au-dessus de Stanley.", "Chemin de gravier, barrière à l’entrée. Pour visiter, c’est écrit dans l’annonce : le courtier t’attend à la barrière.", "Comme dans un film d’espion. J’haïs pas ça.", "", "La cuisine. Un évier, une grande fenêtre, puis la rivière Salmon qui serpente en dessous.", "Faire la vaisselle a jamais été aussi beau. Je suis preneur. Je lave tes chaudrons.", "", "Le salon : plancher radiant, puis un poêle à bois grand comme une boîte à pain.", "Stanley, c’est souvent le coin le plus frette des États. Le petit poêle va faire des heures supplémentaires.", "", "La chambre : béton au sol, pas un meuble, une mezzanine pour dormir.", "C’est pas vide. C’est minimaliste. À 3 M$, on dit minimaliste.", "", "Dehors, un banc en pierre au bord du vide. Pour réfléchir à ton hypothèque.", "Puis 465 000 acres de forêt nationale autour. Tes voisins, c’est des orignaux.", "Les taxes? 569 $ par année. Ça, c’est la meilleure nouvelle de l’annonce.", "", "Note du photographe : la moitié des photos sont prises en été, l’autre en automne. Celles d’été : un pro. Celles d’automne, à la verticale, soleil plein face : un cell.", "Mais le drone au coucher de soleil sur le rocher? Je le donne. C’est de toute beauté.", "", "C’est pour quelqu’un qui veut avoir la câlisse de paix. Puis qui a 3 M$ pour l’avoir.", "Mais pour vrai : bâtir ça au bout d’un rocher, avec cette vue-là, c’est fou raide. Je m’installerais là demain matin. Avec un deuxième poêle."],
+   infos:["2 995 000 $ US","1 ch. · 1 sdb","900 pi²","Photos : annonce Sun Valley Real Estate via Zillow"]},
   {slug:"annapolis-royal",nom:"La maison de 1708",lieu:"Annapolis Royal, Nouvelle-Écosse",annee:"495 000 $",cat:"Historique",
    photo:"/images/841430c341.jpg",credit:"Photo : RE/MAX Banner Real Estate via Zillow",
    lien:"https://www.zillow.com/homedetails/477-Saint-George-St-Annapolis-Royal-NS-B0S-1A0/305715087_zpid/",
