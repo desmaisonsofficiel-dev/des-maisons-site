@@ -74,7 +74,7 @@ function page(m){
   const photo=m.photo?`<div class="photo-grande"><img src="${m.photo}" alt="${esc(m.nom)}, ${esc(m.lieu)}"><span class="credit" style="position:absolute;right:0;bottom:0;background:rgba(13,12,11,.75);color:#efe6d2;font:500 10px var(--mono);padding:3px 6px">${esc(m.credit||"")}</span></div>`:"";
   const infos=[m.type==="episode"?(m.prix+(m.annee?" · construite en "+m.annee:"")):null,...(m.infos||[]),m.episode?"Épisode du "+m.episode:null].filter(Boolean);
   const autres=tout.filter(x=>x.slug!==m.slug).slice(0,3);
-  return `${tete({titre,desc,image:SITE+m.photo,url})}
+  return `${tete({titre,desc,image:/^https?:/.test(m.photo)?m.photo:SITE+m.photo,url})}
 <body>
 <div class="wrap barre"><a href="/"><img src="/images/edd9d7ae11.jpg" alt="">Des Maisons.</a><a class="retour" href="/#${m.type==="episode"?"maisons":"carnet"}">← Toutes les maisons</a></div>
 <main class="wrap">

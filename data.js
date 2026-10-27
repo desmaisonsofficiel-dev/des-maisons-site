@@ -2,6 +2,9 @@
 // Pour ajouter une maison : copier un bloc, changer les champs, puis lancer « node build.js ».
 // slug = l'adresse de la page (desmaisons.ca/<slug>)
 var MAISONS=[
+  {slug:"oklahoma-city",nom:"Le ranch aux 33 garages",photo:"https://cdn.datafloat.com/AGY_PUBLIC/MLSPhotos/INTLST/TA7382_1.jpg",credit:"Photo : The Agency",theme:"Manoir",lieu:"Oklahoma City, Oklahoma",prix:"14 995 000 $ US",annee:"2018",
+   texte:"Deux allées de quilles, une piscine de 70 000 gallons avec glissade, 200 poissons koi, puis une grange avec un terrain de basket, une scène et 33 garages. On sait jamais quand on va avoir besoin d’un 33e char.",
+   statut:"En ligne",video:"https://www.youtube.com/watch?v=MZBF6NfcQl4",episode:"26 oct. 2026",annonce:"https://www.theagencyre.com/single-family/int/ta7382/10201-se-74th-st-oklahoma-city-ok-73150"},
   {slug:"erin",nom:"Le pire bungalow à 1,8 M$",photo:"/images/erin-trafalgar.jpg",credit:"Photo : Century 21 Property Zone Realty via Zillow",theme:"Bungalow",lieu:"Erin, Ontario",prix:"1 799 900 $",
    texte:"Un bungalow surélevé tout rénové, la Voie lactée en arrière, puis 11 places de stationnement. Le ciel a été ajouté à l’ordi. Le prix, lui, est bien réel. Ça va-tu, l’Ontario?",
    statut:"En ligne",video:"https://www.youtube.com/watch?v=jcY4cMZ9rrw",episode:"24 oct. 2026",annonce:"https://www.zillow.com/homedetails/5172-Trafalgar-Rd-Erin-ON-N0B-1T0/2067392556_zpid/"},
