@@ -2,6 +2,9 @@
 // Pour ajouter une maison : copier un bloc, changer les champs, puis lancer « node build.js ».
 // slug = l'adresse de la page (desmaisons.ca/<slug>)
 var MAISONS=[
+  {slug:"hyrum",nom:"Le manoir avec une maison dans le sous-sol",photo:"/images/hyrum.jpg",credit:"Photo : annonce via Redfin",theme:"Manoir",lieu:"Hyrum, Utah",prix:"Affichée 35 M$ US",annee:"2019",
+   texte:"70 000 pieds carrés, 10 chambres, 14 salles de bain, une table pour 44, un cinéma de 60 places, un shooting range de carnaval, puis, dans le sous-sol, une maison de deux étages. Affichée à 35 M$, vendue autour de 4,5 M$. Je sais pas si je suis impressionné ou inquiet.",
+   statut:"En ligne",video:"https://www.youtube.com/watch?v=g8hMF_7ZiKE",episode:"1er nov. 2026",annonce:"https://www.redfin.com/UT/Hyrum/200-E-7000-S-84319/home/193992141"},
   {slug:"san-antonio-pastel",nom:"La maison Watatatow",photo:"/images/san-antonio-pastel.jpg",credit:"Photo : annonce eXp Realty via Zillow",theme:"Années 90",lieu:"San Antonio, Texas",prix:"725 000 $ US",annee:"1992",
    texte:"Tapis rose, murs mauves, miroirs en zigzag, escalier qui tourne : c’est un épisode de Watatatow au complet. Toilette rose, bain rose, douche en blocs de verre. C’est une œuvre d’art. Touchez pas à ça. Moi, j’embarque à deux pieds.",
    statut:"En ligne",video:"https://www.youtube.com/watch?v=Syx_LQ7fR2E",episode:"27 oct. 2026",annonce:"https://www.zillow.com/homedetails/23135-Summers-Dream-San-Antonio-TX-78258/26475045_zpid/"},
