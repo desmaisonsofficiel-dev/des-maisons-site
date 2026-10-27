@@ -2,11 +2,11 @@
 // Pour ajouter une maison : copier un bloc, changer les champs, puis lancer « node build.js ».
 // slug = l'adresse de la page (desmaisons.ca/<slug>)
 var MAISONS=[
-  {slug:"san-antonio-pastel",nom:"La maison pastel des années 90",photo:"/images/san-antonio-pastel.jpg",credit:"Photo : annonce eXp Realty via Zillow",theme:"Années 90",lieu:"San Antonio, Texas",prix:"725 000 $ US",annee:"1992",
-   texte:"Du tapis lilas, des plafonds turquoise, des nuages peints sur les murs, puis un escalier en colimaçon devant deux étages de miroirs ondulés. Il y a même un placard secret. Tu rentres là-dedans comme dans une boîte de craies pastel.",
+  {slug:"san-antonio-pastel",nom:"La maison Watatatow",photo:"/images/san-antonio-pastel.jpg",credit:"Photo : annonce eXp Realty via Zillow",theme:"Années 90",lieu:"San Antonio, Texas",prix:"725 000 $ US",annee:"1992",
+   texte:"Tapis rose, murs mauves, miroirs en zigzag, escalier qui tourne : c’est un épisode de Watatatow au complet. Toilette rose, bain rose, douche en blocs de verre. C’est une œuvre d’art. Touchez pas à ça. Moi, j’embarque à deux pieds.",
    statut:"En ligne",video:"https://www.youtube.com/watch?v=Syx_LQ7fR2E",episode:"27 oct. 2026",annonce:"https://www.zillow.com/homedetails/23135-Summers-Dream-San-Antonio-TX-78258/26475045_zpid/"},
   {slug:"fortune-hill",nom:"La maison gelée dans le temps",photo:"/images/fortune-hill.jpg",credit:"Photo : annonce via Zillow",theme:"À rénover",lieu:"San Antonio, Texas",prix:"997 000 $ US",annee:"1989",
-   texte:"8 059 pieds carrés, une piscine intérieure, un gymnase de basket, des bars à la grandeur, puis une maison d’invités. Pas touchée depuis les années 90. Le courtier nous demande d’être gentils avec elle. Promis. On va essayer.",
+   texte:"La pire version d’un conversation pit que j’ai vue de ma vie. Le tapis cherche à s’en aller, les plantes rentrent dans la maison, puis le gym a encore son ballon vintage. Une vraie maison de party des années 90. Ça devait être cool à une époque.",
    statut:"En ligne",video:"https://www.youtube.com/watch?v=Syx_LQ7fR2E",episode:"27 oct. 2026",annonce:"https://www.zillow.com/homedetails/1403-Fortune-Hl-San-Antonio-TX-78258/26475031_zpid/"},
   {slug:"oklahoma-city",nom:"Le ranch aux 33 garages",photo:"https://cdn.datafloat.com/AGY_PUBLIC/MLSPhotos/INTLST/TA7382_1.jpg",credit:"Photo : The Agency",theme:"Manoir",lieu:"Oklahoma City, Oklahoma",prix:"14 995 000 $ US",annee:"2018",
    texte:"Deux allées de quilles, une piscine de 70 000 gallons avec glissade, 200 poissons koi, puis une grange avec un terrain de basket, une scène et 33 garages. On sait jamais quand on va avoir besoin d’un 33e char.",
