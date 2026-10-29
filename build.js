@@ -82,6 +82,11 @@ function page(m){
     <div class="label">${esc(label)}</div>
     <h1>${m.nom}</h1>
     <span class="prix-p">${esc(m.prix)}</span>
+    ${m.enVente?`<div class="compteur-vente" data-depuis="${m.enVente}">
+      <div class="label">Le compteur de la honte · en vente depuis le ${new Date(m.enVente+"T12:00:00").toLocaleDateString("fr-CA",{day:"numeric",month:"long",year:"numeric"})}</div>
+      <div class="cv-ligne"><span class="cv-nb">…</span><span class="cv-txt">jours en vente.<br>Toujours pas vendue.</span></div>
+      <p class="cv-note">Ça compte tout seul, chaque jour. Suivi promis dans un prochain épisode.</p>
+    </div>`:""}
     ${video}
     ${photo}
     ${corps}
