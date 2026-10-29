@@ -354,7 +354,7 @@ function rendre(){
   MAISONS.filter(m=>theme==="Tout"||m.theme===theme).forEach(m=>{
     const n=MAISONS.indexOf(m),pret=m.statut==="En ligne",el=document.createElement("article");el.className="maison";
     el.innerHTML=`<div class="photo">${m.photo?`<img src="${m.photo}" alt="${m.nom}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><span class="credit">${m.credit||""}</span>`:"<canvas></canvas>"}<span class="prix ${pret?"":"bientot"}">${pret?"EN LIGNE":"BIENTÔT"}</span></div>
-      <div class="corps"><div class="label">${m.theme}${m.lieu?" · "+m.lieu:""}</div><h3><a href="/${m.slug}/" style="text-decoration:none;color:inherit">${m.nom}</a></h3><p>${m.texte}</p>
+      <div class="corps"><div class="label">${m.theme}${m.lieu?" · "+m.lieu:""}</div><h3><a href="/${m.slug}/" style="text-decoration:none;color:inherit">${m.nom}</a></h3>${m.enVente?`<span class="cv-mini">En vente depuis ${Math.max(0,Math.floor((Date.now()-new Date(m.enVente+"T00:00:00"))/864e5))} jours</span>`:""}<p>${m.texte}</p>
       ${m.prix?`<div class="label" style="color:var(--jaune)">${m.prix}${m.annee?" · "+m.annee:""}</div>`:""}
       <div class="fiche"><span class="label">${m.episode?"Épisode du "+m.episode:"Fiche "+String(n+1).padStart(3,"0")}</span><span style="display:flex;gap:14px;flex-wrap:wrap">${m.annonce?`<a href="${m.annonce}" target="_blank" rel="noopener">L’annonce</a>`:""}${pret?`<a href="/${m.slug}/">La fiche + l’épisode →</a>`:'<span class="label">À venir</span>'}</span></div></div>`;
     grille.appendChild(el);

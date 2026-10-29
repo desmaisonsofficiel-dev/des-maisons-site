@@ -31,6 +31,13 @@
     });
   });
 
+  // Compteur de jours en vente (ex. Erin)
+  const jours=d=>Math.max(0,Math.floor((Date.now()-new Date(d+"T00:00:00"))/86400000));
+  document.querySelectorAll("[data-depuis]").forEach(e=>{
+    const n=jours(e.dataset.depuis),nb=e.querySelector(".cv-nb");
+    if(nb)nb.textContent=n;else e.textContent="En vente depuis "+n+" jours";
+  });
+
   // Vote : la pire maison du mois, résultats en direct (fonction Netlify /api/vote)
   const mois=new Date().toLocaleDateString("fr-CA",{month:"long",year:"numeric"});
   const cle="vote-"+new Date().toISOString().slice(0,7);

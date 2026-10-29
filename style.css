@@ -243,3 +243,9 @@ footer{border-top:2px solid var(--ligne);padding-block:28px 40px;color:var(--gri
 .podium a{font-weight:800;text-decoration:none;color:var(--creme);min-width:0}
 .podium a:hover{color:var(--jaune)}
 .podium b{font-family:var(--display);font-weight:400;font-size:24px;color:var(--jaune)}
+.compteur-vente{border:3px solid var(--rouge);background:var(--carton);padding:18px 20px;display:grid;gap:10px}
+.compteur-vente .cv-ligne{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.compteur-vente .cv-nb{font-family:var(--display);font-size:clamp(72px,20vw,128px);line-height:.9;color:var(--jaune);font-variant-numeric:tabular-nums}
+.compteur-vente .cv-txt{font-family:var(--display);font-size:clamp(24px,6vw,34px);line-height:1.05;color:var(--creme)}
+.compteur-vente .cv-note{margin:0;color:var(--gris);font-size:15px}
+.maison .cv-mini{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;background:var(--rouge);color:#fff;padding:3px 8px;justify-self:start}
