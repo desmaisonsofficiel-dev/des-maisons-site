@@ -249,3 +249,19 @@ footer{border-top:2px solid var(--ligne);padding-block:28px 40px;color:var(--gri
 .compteur-vente .cv-txt{font-family:var(--display);font-size:clamp(24px,6vw,34px);line-height:1.05;color:var(--creme)}
 .compteur-vente .cv-note{margin:0;color:var(--gris);font-size:15px}
 .maison .cv-mini{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;background:var(--rouge);color:#fff;padding:3px 8px;justify-self:start}
+.onglets{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.onglets button{font:600 14px var(--body);background:transparent;color:var(--creme);border:2px solid var(--ligne);padding:8px 14px;cursor:pointer}
+.onglets button[aria-selected="true"]{background:var(--jaune);color:var(--noir);border-color:var(--jaune)}
+.vote-note{margin:14px 0 0;color:var(--gris);font-size:15px}
+.gagnante{display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);gap:18px;align-items:center;text-decoration:none;border:3px solid var(--rouge);background:var(--carton);padding:12px}
+@media (max-width:560px){.gagnante{grid-template-columns:1fr}}
+.gagnante img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.gagnante span{display:grid;gap:6px}
+.gagnante b{font-family:var(--display);font-weight:400;font-size:clamp(32px,6vw,48px);color:var(--jaune);line-height:1}
+.gagnante small{color:var(--gris);font-size:15px}
+.classement{list-style:none;margin:0;padding:0;display:grid;gap:0;border:2px solid var(--ligne);background:var(--carton)}
+.classement li{display:grid;grid-template-columns:36px 1fr auto;gap:10px;align-items:baseline;padding:10px 14px;border-top:1px dashed var(--ligne)}
+.classement li:first-child{border-top:0}
+.classement .pos{font-family:var(--display);font-size:24px;color:var(--jaune)}
+.classement a{font-weight:800;text-decoration:none;color:var(--creme)}
+.classement b{font-family:var(--display);font-weight:400;font-size:22px;color:var(--jaune)}

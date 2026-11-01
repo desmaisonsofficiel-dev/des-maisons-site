@@ -40,7 +40,7 @@
 
   // Vote : la pire maison du mois, résultats en direct (fonction Netlify /api/vote)
   const mois=new Date().toLocaleDateString("fr-CA",{month:"long",year:"numeric"});
-  const cle="vote-"+new Date().toISOString().slice(0,7);
+  const cle="vote-"+new Date().toLocaleDateString("en-CA",{timeZone:"America/Toronto"}).slice(0,7);
   let deja=null;try{deja=localStorage.getItem(cle)}catch(x){}
   document.querySelectorAll("[data-mois]").forEach(e=>e.textContent=mois);
   const boutons=[...document.querySelectorAll("button.vote[data-vote]")];

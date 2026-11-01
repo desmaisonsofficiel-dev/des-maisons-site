@@ -19,14 +19,16 @@ export default async (req, context) => {
   const m = mois();
 
   if (req.method === "GET") {
-    const votes = (await store.get(m, { type: "json" })) || {};
-    return json({ mois: m, votes });
+    const demande = new URL(req.url).searchParams.get("mois");
+    const k = /^\d{4}-\d{2}$/.test(demande || "") ? demande : m;
+    const votes = (await store.get(k, { type: "json" })) || {};
+    return json({ mois: k, votes, ouvert: k === m });
   }
   if (req.method !== "POST") return json({ erreur: "méthode" }, 405);
 
   let slug;
   try { slug = (await req.json()).slug; } catch { return json({ erreur: "requête" }, 400); }
-  if (!SLUGS.includes(slug)) return json({ erreur: "maison inconnue" }, 400);
+  if (!(SLUGS[m] || []).includes(slug)) return json({ erreur: "cette maison n’est pas dans le vote de ce mois-ci" }, 400);
 
   // Limite par IP
   const ipKey = `ip/${m}/${await hash(context.ip || "inconnu")}`;

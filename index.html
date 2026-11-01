@@ -82,9 +82,14 @@
           <p>Laquelle mérite le titre? Un vote par personne, les résultats bougent en direct. Le verdict sort dans un épisode à la fin du mois.</p>
         </div>
       </div>
-      <div class="podium" id="podium" hidden></div>
-      <div class="votes" id="votes"></div>
-      <p class="vote-msg" hidden></p>
+      <div class="onglets" id="onglets-vote" role="tablist" aria-label="Choisir le mois"></div>
+      <div id="vote-courant">
+        <div class="podium" id="podium" hidden></div>
+        <div class="votes" id="votes"></div>
+        <p class="vote-note" id="vote-note" hidden></p>
+        <p class="vote-msg" hidden></p>
+      </div>
+      <div id="vote-archive" hidden></div>
     </div>
   </section>
   <section id="soumettre">
@@ -469,7 +474,33 @@ function rendreCarnet(){
 }
 rendreCarnet();
 // Vote : toutes les maisons du site
-document.getElementById("votes").innerHTML=[...MAISONS,...CARNET].map(m=>`<button class="vote" type="button" data-vote="${m.slug}" data-nom="${m.nom}" aria-pressed="false"><img src="${m.photo}" alt="" loading="lazy"><span>${m.nom}</span><span class="compte"><i class="jauge"><b></b></i><em class="nb"></em></span></button>`).join("");
+// Vote : un vote par mois (maisons du mois), onglets pour les mois passés
+const MOIS_COURANT=new Date().toLocaleDateString("en-CA",{timeZone:"America/Toronto"}).slice(0,7);
+const nomMois=k=>new Date(k+"-15T12:00:00").toLocaleDateString("fr-CA",{month:"long",year:"numeric"});
+const TOUTES=[...MAISONS,...CARNET],PAR_MOIS={};
+TOUTES.forEach(m=>{const k=m.mois||"2026-10";(PAR_MOIS[k]=PAR_MOIS[k]||[]).push(m)});
+if(!PAR_MOIS[MOIS_COURANT])PAR_MOIS[MOIS_COURANT]=[];
+const MOIS_LISTE=Object.keys(PAR_MOIS).filter(k=>k<=MOIS_COURANT).sort().reverse();
+const carte=m=>`<button class="vote" type="button" data-vote="${m.slug}" data-nom="${m.nom}" aria-pressed="false"><img src="${m.photo}" alt="" loading="lazy"><span>${m.nom}</span><span class="compte"><i class="jauge"><b></b></i><em class="nb"></em></span></button>`;
+const cand=PAR_MOIS[MOIS_COURANT];
+document.getElementById("votes").innerHTML=cand.map(carte).join("");
+if(cand.length<3){const n=document.getElementById("vote-note");n.hidden=false;n.textContent="Les maisons de "+nomMois(MOIS_COURANT).split(" ")[0]+" s’ajoutent à chaque nouvel épisode. Reviens voter : la liste va grossir."}
+const ong=document.getElementById("onglets-vote");
+ong.innerHTML=MOIS_LISTE.map(k=>`<button type="button" role="tab" data-onglet="${k}" aria-selected="${k===MOIS_COURANT}">${nomMois(k).replace(/^./,c=>c.toUpperCase())}${k===MOIS_COURANT?" · en cours":" · résultats"}</button>`).join("");
+async function archive(k){
+  const z=document.getElementById("vote-archive");z.innerHTML='<p class="vote-note">Chargement des résultats…</p>';
+  let votes={};try{const r=await fetch("/api/vote?mois="+k,{cache:"no-store"});if(r.ok)votes=(await r.json()).votes||{}}catch(x){}
+  const liste=(PAR_MOIS[k]||[]).map(m=>({...m,n:votes[m.slug]||0})).sort((a,b)=>b.n-a.n);
+  const total=liste.reduce((a,m)=>a+m.n,0),g=liste[0];
+  z.innerHTML=(g&&g.n?`<a class="gagnante" href="/${g.slug}/"><img src="${g.photo}" alt=""><span><span class="label">La pire maison de ${nomMois(k).split(" ")[0]}</span><b>${g.nom}</b><small>${g.lieu} · ${g.n} vote${g.n>1?"s":""} sur ${total}</small></span></a>`:"")+
+   `<div class="label" style="margin:18px 0 8px">Vote fermé · résultats finaux</div><ol class="classement">${liste.map((m,i)=>`<li><span class="pos">${i+1}</span><a href="/${m.slug}/">${m.nom}</a><b>${m.n}</b></li>`).join("")}</ol>`;
+}
+ong.querySelectorAll("button").forEach(b=>b.onclick=()=>{
+  ong.querySelectorAll("button").forEach(x=>x.setAttribute("aria-selected",x===b));
+  const k=b.dataset.onglet,cour=k===MOIS_COURANT;
+  document.getElementById("vote-courant").hidden=!cour;document.getElementById("vote-archive").hidden=cour;
+  if(!cour)archive(k);
+});
 
 
 </script>

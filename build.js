@@ -118,7 +118,8 @@ for(const m of tout){
   fs.mkdirSync(path.join(__dirname,m.slug),{recursive:true});
   fs.writeFileSync(path.join(__dirname,m.slug,"index.html"),page(m));
 }
-fs.writeFileSync(path.join(__dirname,"netlify/functions/slugs.mjs"),"export default "+JSON.stringify(tout.map(m=>m.slug))+";\n");
+const parMois={};for(const m of tout){const k=m.mois||"2026-10";(parMois[k]=parMois[k]||[]).push(m.slug)}
+fs.writeFileSync(path.join(__dirname,"netlify/functions/slugs.mjs"),"export default "+JSON.stringify(parMois)+";\n");
 const urls=[SITE+"/",...tout.map(m=>`${SITE}/${m.slug}/`)];
 fs.writeFileSync(path.join(__dirname,"sitemap.xml"),`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u=>`  <url><loc>${u}</loc></url>`).join("\n")}\n</urlset>\n`);
 fs.writeFileSync(path.join(__dirname,"robots.txt"),`User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`);
