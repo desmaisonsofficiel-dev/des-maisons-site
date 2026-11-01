@@ -67,7 +67,7 @@ function page(m){
   }else{
     corps=`<div class="texte-maison"><p class="accroche">${m.texte}</p></div>`;
   }
-  const video=yt?`<div class="video" data-yt="${yt}" data-titre="${esc(m.nom)}">
+  const video=yt?`<div class="video" data-yt="${yt}" data-titre="${esc(m.nom)}"${m.sortie?` data-sortie="${m.sortie}"`:""}>
       <img src="https://i.ytimg.com/vi/${yt}/hqdefault.jpg" alt="" loading="lazy">
       <button type="button" aria-label="Regarder l’épisode : ${esc(m.nom)}"><span class="jouer"></span><span class="titre-v">▶ Regarder l’épisode</span></button>
     </div>`:"";

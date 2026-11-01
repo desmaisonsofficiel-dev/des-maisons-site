@@ -3,7 +3,16 @@
   // Vidéo YouTube : on charge le lecteur seulement au clic (page plus rapide)
   document.querySelectorAll(".video[data-yt]").forEach(v=>{
     const b=v.querySelector("button");if(!b)return;
+    const sortie=v.dataset.sortie?Date.parse(v.dataset.sortie):0;
+    const heure=sortie?new Date(sortie).toLocaleTimeString("fr-CA",{timeZone:"America/Toronto",hour:"numeric"}):"";
+    const attente=()=>sortie&&Date.now()<sortie;
+    if(attente()){
+      v.classList.add("bientot");
+      v.querySelector(".titre-v").textContent="Vidéo disponible à "+heure;
+      setTimeout(()=>{v.classList.remove("bientot");v.querySelector(".titre-v").textContent="▶ Regarder l’épisode"},sortie-Date.now()+1000);
+    }
     b.addEventListener("click",()=>{
+      if(attente())return;
       const f=document.createElement("iframe");
       f.src="https://www.youtube-nocookie.com/embed/"+v.dataset.yt+"?autoplay=1&rel=0";
       f.title=v.dataset.titre||"Épisode Des Maisons";

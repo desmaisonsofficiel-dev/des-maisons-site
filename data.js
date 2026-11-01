@@ -2,7 +2,7 @@
 // Pour ajouter une maison : copier un bloc, changer les champs, puis lancer « node build.js ».
 // slug = l'adresse de la page (desmaisons.ca/<slug>)
 var MAISONS=[
-  {slug:"hyrum",mois:"2026-11",nom:"Le manoir avec une maison dans le sous-sol",photo:"/images/hyrum.jpg",credit:"Photo : PCMLS via Redfin",theme:"Manoir",lieu:"Hyrum, Utah",prix:"Affichée 35 M$ US",annee:"2019",
+  {slug:"hyrum",mois:"2026-11",sortie:"2026-11-01T10:00:00-05:00",nom:"Le manoir avec une maison dans le sous-sol",photo:"/images/hyrum.jpg",credit:"Photo : PCMLS via Redfin",theme:"Manoir",lieu:"Hyrum, Utah",prix:"Affichée 35 M$ US",annee:"2019",
    texte:"70 000 pieds carrés, 10 chambres, 14 salles de bain, une table pour 42, un cinéma de 62 places, une copie du Tiki Room de Disney, un shooting range de carnaval, un castor géant caché dans un garde-robe, puis, dans le sous-sol, une maison de deux étages. Affichée à 35 M$, vendue autour de 4,5 M$. Je sais pas si je suis impressionné ou inquiet.",
    statut:"En ligne",video:"https://www.youtube.com/watch?v=g8hMF_7ZiKE",episode:"1er nov. 2026",annonce:"https://www.zillow.com/homedetails/200-E-7000-S-Hyrum-UT-84319/250714657_zpid/"},
   {slug:"san-antonio-pastel",nom:"La maison Watatatow",photo:"/images/san-antonio-pastel.jpg",credit:"Photo : annonce eXp Realty via Zillow",theme:"Années 90",lieu:"San Antonio, Texas",prix:"725 000 $ US",annee:"1992",
