@@ -22,33 +22,34 @@ export default async (req, context) => {
     const demande = new URL(req.url).searchParams.get("mois");
     const k = /^\d{4}-\d{2}$/.test(demande || "") ? demande : m;
     const votes = (await store.get(k, { type: "json" })) || {};
-    return json({ mois: k, votes, ouvert: k === m });
+    return json({ mois: k, votes });
   }
   if (req.method !== "POST") return json({ erreur: "méthode" }, 405);
 
-  let slug;
-  try { slug = (await req.json()).slug; } catch { return json({ erreur: "requête" }, 400); }
-  if (!(SLUGS[m] || []).includes(slug)) return json({ erreur: "cette maison n’est pas dans le vote de ce mois-ci" }, 400);
+  let slug, k;
+  try { const corps = await req.json(); slug = corps.slug; k = corps.mois || m; } catch { return json({ erreur: "requête" }, 400); }
+  if (!/^\d{4}-\d{2}$/.test(k) || k > m) return json({ erreur: "mois invalide" }, 400);
+  if (!(SLUGS[k] || []).includes(slug)) return json({ erreur: "cette maison n’est pas dans le vote de ce mois-là" }, 400);
 
   // Limite par IP
-  const ipKey = `ip/${m}/${await hash(context.ip || "inconnu")}`;
+  const ipKey = `ip/${k}/${await hash(context.ip || "inconnu")}`;
   const deja = Number(await store.get(ipKey)) || 0;
   if (deja >= MAX_PAR_IP) {
-    const votes = (await store.get(m, { type: "json" })) || {};
-    return json({ mois: m, votes, limite: true }, 429);
+    const votes = (await store.get(k, { type: "json" })) || {};
+    return json({ mois: k, votes, limite: true }, 429);
   }
 
   // Incrément sans perdre de votes si deux personnes votent en même temps
   for (let essai = 0; essai < 8; essai++) {
-    const r = await store.getWithMetadata(m, { type: "json" });
+    const r = await store.getWithMetadata(k, { type: "json" });
     const votes = r?.data || {};
     votes[slug] = (votes[slug] || 0) + 1;
     const res = r
-      ? await store.setJSON(m, votes, { onlyIfMatch: r.etag })
-      : await store.setJSON(m, votes, { onlyIfNew: true });
+      ? await store.setJSON(k, votes, { onlyIfMatch: r.etag })
+      : await store.setJSON(k, votes, { onlyIfNew: true });
     if (res?.modified !== false) {
       await store.set(ipKey, String(deja + 1));
-      return json({ mois: m, votes });
+      return json({ mois: k, votes });
     }
   }
   return json({ erreur: "occupé, réessaie" }, 503);
