@@ -489,6 +489,7 @@ ong.innerHTML=MOIS_LISTE.map(k=>`<button type="button" role="tab" data-onglet="$
 ong.querySelectorAll("button").forEach(b=>b.onclick=()=>{
   ong.querySelectorAll("button").forEach(x=>x.setAttribute("aria-selected",x===b));
   document.querySelectorAll(".panneau-vote").forEach(p=>p.hidden=p.dataset.voteMois!==b.dataset.onglet);
+  document.querySelectorAll("#vote [data-mois]").forEach(e=>e.textContent=nomMois(b.dataset.onglet));
 });
 
 
