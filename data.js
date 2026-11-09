@@ -32,6 +32,12 @@ var MAISONS=[
 ];
 
 var CARNET=[
+  {slug:"branson",mois:"2026-11",nom:"Le chalet aux dragons",lieu:"Branson, Missouri",annee:"4 999 000 $",cat:"Chalet",
+   photo:"/images/branson.jpg",credit:"Photo : annonce via Zillow",
+   lien:"https://www.zillow.com/homedetails/88-End-Of-Trail-Dr-Branson-MO-65616/236153338_zpid",
+   accroche:"Une table pour 19. Avec un Lazy Susan au milieu.",
+   lignes:["4 999 000 $ US. 8 chambres. 13 800 pieds carrés sur 4 étages. Sur le bord du lac Table Rock, à Branson, au Missouri.", "Elle a déjà été affichée à 8 M$. Puis à 7 M$. Là, on est à 5. Ça descend comme une glissade d'eau.", "", "Dans la salle à manger, une table pour 19 personnes.", "Avec un Lazy Susan au milieu.", "19 personnes qui se passent le ketchup en le faisant tourner. Quelqu'un a pensé à tout.", "", "Au-dessus de la piscine, des dragons en bronze qui crachent du feu.", "Pas un. Des dragons.", "Puis le foyer en pierre du salon a un aigle en terracotta. Le courtier dit que c'est un des deux seuls connus. On sait pas où est l'autre. On pose pas de questions.", "", "Deux cuisines. Quatre salles de lavage.", "Quatre. Moi, j'en ai une, puis je la trouve de trop.", "", "Tout est en bois rond et en pierre, avec des vitraux, des plafonds en bois équarri à la main, puis un bar en forme de selle de cheval.", "Puis c'est vendu meublé. Les dragons, les statues, le lit à baldaquin européen : tout est inclus.", "", "La photo de façade au drone, par exemple, je la donne. Bien cadrée, belle lumière, on voit tout l'étagement de la maison. C'est un pro.", "", "C'est pour une famille de 19 qui aime le lavage. Ou un gars qui veut ses propres dragons.", "Mais pour vrai : du bois rond, de la pierre locale, puis des gens qui ont mis du cœur dans chaque détail. C'est pas mon style, mais c'est fait avec amour. Ça se voit."],
+   infos:["4 999 000 $ US","8 ch. · 11 sdb","13 800 pi²","Photos : annonce via Zillow"]},
   {slug:"stanley",nom:"Le chalet au bord du cliff",lieu:"Stanley, Idaho",annee:"2 995 000 $",cat:"Chalet",
    photo:"/images/stanley-cliff.jpg",credit:"Photo : Sun Valley Real Estate via Zillow",
    lien:"https://www.zillow.com/homedetails/325-Sawtooth-Ridge-Rd-Stanley-ID-83278/466126930_zpid/",
