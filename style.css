@@ -268,3 +268,34 @@ footer{border-top:2px solid var(--ligne);padding-block:28px 40px;color:var(--gri
 .video.bientot button{cursor:default}
 .video.bientot .jouer{background:#3a3631}
 .video.bientot .titre-v{background:var(--rouge);font-family:var(--display);font-weight:400;font-size:28px;letter-spacing:.02em;text-align:center}
+/* Onglets du haut + horaire de la semaine */
+.onglets-haut{display:flex;justify-content:center;gap:8px;max-width:620px;margin:0 auto}
+.onglets-haut button{flex:1 1 0;font:800 15px var(--body);color:var(--creme);background:transparent;border:2px solid var(--ligne);padding:12px 10px;cursor:pointer}
+.onglets-haut button[aria-selected="true"]{background:var(--jaune);border-color:var(--jaune);color:var(--noir)}
+.prochain{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px 12px;box-sizing:border-box;width:calc(100% - 32px);max-width:520px;margin:12px auto 0;padding:10px 14px;border:2px dashed var(--rouge);text-decoration:none;color:var(--creme);font-size:15px;text-align:center}
+.prochain .pr-lab{background:var(--rouge);color:#fff;font:500 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:2px 8px}
+.prochain .pr-voir{color:var(--jaune);font-weight:800}
+.horaire{padding-block:20px 48px;display:grid;gap:16px}
+.h-tete{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 16px}
+.h-etiquette{background:var(--rouge);color:#fff;font:500 13px var(--mono);letter-spacing:.2em;padding:5px 12px;transform:rotate(-2deg)}
+.h-semaine{color:var(--gris);font-size:16px}
+.h-cartes{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.h-carte{position:relative;display:flex;flex-direction:column;gap:10px;padding:18px;background:var(--carton);border:2px solid var(--ligne);text-decoration:none;color:var(--creme);min-height:190px}
+.h-carte:hover{border-color:var(--jaune)}
+.h-carte.vedette{background:var(--rouge);border-color:var(--rouge)}
+.h-carte.suivant{box-shadow:0 0 0 3px var(--jaune)}
+.h-carte.passe{opacity:.45}
+.h-quand{font-size:20px;font-weight:800;color:var(--creme)}
+.h-quand b{font-family:var(--display);font-weight:400;font-size:40px;color:var(--jaune);margin-right:6px;line-height:1}
+.h-badge{align-self:flex-start;font:500 12px var(--mono);letter-spacing:.12em;padding:3px 9px}
+.h-badge.h-direct{background:var(--rouge);color:#fff}
+.h-carte.vedette .h-badge.h-direct{background:var(--noir)}
+.h-badge.h-video{border:2px solid var(--creme);color:var(--creme)}
+.h-titre{font-family:var(--display);font-size:30px;line-height:1.02;color:var(--creme)}
+.h-carte.vedette .h-titre{color:var(--jaune)}
+.h-sous{font-size:15px;color:var(--gris);line-height:1.35}
+.h-carte.vedette .h-sous{color:#fff}
+.h-plat{margin-top:auto;font-size:14px;font-weight:800;color:var(--jaune)}
+.h-fini{position:absolute;top:12px;right:12px;font:500 11px var(--mono);color:var(--gris);text-transform:uppercase}
+.h-note{margin:0;color:var(--gris);font-size:14px}
+.h-note a{color:var(--creme)}

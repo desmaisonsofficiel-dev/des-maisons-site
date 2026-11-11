@@ -17,3 +17,6 @@ Site de Des Maisons, hébergé sur Netlify (mise à jour automatique à chaque p
 - Formulaires Netlify : soumission-maison, commandite, infolettre
 - Votes en direct : fonction Netlify `netlify/functions/vote.mjs` (/api/vote) + Netlify Blobs
 - Statistiques : GoatCounter (desmaisons.goatcounter.com)
+
+## Horaire de la semaine
+Modifier `HORAIRE` à la fin de `data.js` (semaine, et une ligne par événement : jour, heure, type "direct" ou "video", titre, sous-titre, vedette pour la carte rouge). Le site affiche « Prochain », « En direct maintenant » et « Terminé » tout seul selon l'heure. Lien direct : desmaisons.ca/#horaire
