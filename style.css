@@ -299,3 +299,13 @@ footer{border-top:2px solid var(--ligne);padding-block:28px 40px;color:var(--gri
 .h-fini{position:absolute;top:12px;right:12px;font:500 11px var(--mono);color:var(--gris);text-transform:uppercase}
 .h-note{margin:0;color:var(--gris);font-size:14px}
 .h-note a{color:var(--creme)}
+.lien .ico-dc{background:#5865f2}
+.discord-carte{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:20px;align-items:center;padding:24px;background:#5865f2;color:#fff;text-decoration:none;border:2px solid #5865f2}
+.discord-carte:hover{border-color:var(--jaune)}
+.discord-carte .dc-logo{display:grid;place-items:center;width:72px;height:72px;border-radius:18px;background:rgba(0,0,0,.18)}
+.discord-carte .dc-txt{display:grid;gap:6px}
+.discord-carte .label{color:#fff;opacity:.85}
+.discord-carte b{font-family:var(--display);font-weight:400;font-size:clamp(28px,5vw,40px);line-height:1}
+.discord-carte .dc-txt>span:last-child{font-size:16px;line-height:1.4}
+.discord-carte .btn{background:var(--jaune);color:var(--noir);white-space:nowrap}
+@media (max-width:640px){.discord-carte{grid-template-columns:1fr}.discord-carte .btn{justify-self:start}}
