@@ -309,3 +309,5 @@ footer{border-top:2px solid var(--ligne);padding-block:28px 40px;color:var(--gri
 .discord-carte .dc-txt>span:last-child{font-size:16px;line-height:1.4}
 .discord-carte .btn{background:var(--jaune);color:var(--noir);white-space:nowrap}
 @media (max-width:640px){.discord-carte{grid-template-columns:1fr}.discord-carte .btn{justify-self:start}}
+.lien-dc{border-color:#5865f2}
+.lien .nouveau{font:500 11px var(--mono);letter-spacing:.1em;background:var(--rouge);color:#fff;padding:2px 6px;margin-left:-4px}
