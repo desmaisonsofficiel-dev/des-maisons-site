@@ -2,6 +2,9 @@
 // Pour ajouter une maison : copier un bloc, changer les champs, puis lancer « node build.js ».
 // slug = l'adresse de la page (desmaisons.ca/<slug>)
 var MAISONS=[
+  {slug:"milwaukee",mois:"2026-11",sortie:"2026-11-12T17:00:00-05:00",nom:"Le salon de la plume rouge",photo:"/images/milwaukee.jpg",credit:"Photo : annonce via Zillow",theme:"Déco",lieu:"Milwaukee, Wisconsin",prix:"199 900 $ US",annee:"1948",
+   texte:"Une maison de 1948 à 199 900 $. Noir, blanc, rouge et chrome partout : des plumes rouges dans un vase, des arbres blancs en plastique, des rideaux en fils d’argent, puis un sous-sol avec cinéma et bar. Quelqu’un a décoré avec une seule palette et beaucoup de conviction.",
+   statut:"En ligne",video:"https://www.youtube.com/watch?v=PRNVxG5TekI",episode:"12 nov. 2026",annonce:"https://www.zillow.com/homedetails/3286-N-60th-St-Milwaukee-WI-53216/40440702_zpid/"},
   {slug:"branson",mois:"2026-11",nom:"Poudlard dans le Montana",photo:"/images/branson.jpg",credit:"Photo : annonce via Zillow",theme:"Manoir",lieu:"Branson, Missouri",prix:"4 999 000 $ US",annee:"2009",
    texte:"Bois rond, pierre, vitraux, 13 800 pieds carrés sur 4 étages au bord du lac Table Rock. Une table pour 19 avec un Lazy Susan, des dragons en bronze qui crachent du feu au-dessus de la piscine, 4 salles de lavage. Affichée à 8 M$, rendue à 5. Les dragons sont inclus.",
    statut:"En ligne",video:"https://www.youtube.com/watch?v=pFpNGfsqrL8",episode:"9 nov. 2026",annonce:"https://www.zillow.com/homedetails/88-End-Of-Trail-Dr-Branson-MO-65616/236153338_zpid"},
