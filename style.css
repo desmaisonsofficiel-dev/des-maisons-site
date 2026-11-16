@@ -279,7 +279,7 @@ footer{border-top:2px solid var(--ligne);padding-block:28px 40px;color:var(--gri
 .h-tete{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 16px}
 .h-etiquette{background:var(--rouge);color:#fff;font:500 13px var(--mono);letter-spacing:.2em;padding:5px 12px;transform:rotate(-2deg)}
 .h-semaine{color:var(--gris);font-size:16px}
-.h-cartes{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.h-cartes{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
 .h-carte{position:relative;display:flex;flex-direction:column;gap:10px;padding:18px;background:var(--carton);border:2px solid var(--ligne);text-decoration:none;color:var(--creme);min-height:190px}
 .h-carte:hover{border-color:var(--jaune)}
 .h-carte.vedette{background:var(--rouge);border-color:var(--rouge)}

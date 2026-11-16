@@ -85,12 +85,13 @@ if(typeof module!=="undefined")module.exports={MAISONS,CARNET};
 
 // HORAIRE DE LA SEMAINE : changer chaque semaine. type = "direct" ou "video". vedette = carte rouge.
 var HORAIRE={
-  semaine:"Semaine du 11 novembre",
+  semaine:"Semaine du 16 novembre",
   items:[
-    {jour:"2026-11-11",heure:"20:00",type:"direct",titre:"Real Estate Simulator",sous:"Twitch · TikTok · YouTube"},
-    {jour:"2026-11-12",heure:"17:00",type:"video",titre:"La vidéo de la semaine",sous:"Une maison. Trop d’opinions."},
-    {jour:"2026-11-13",heure:"20:00",type:"direct",titre:"Visite libre",sous:"2 h dans les pires listings de la semaine",note:"Twitch · TikTok · YouTube",vedette:true},
-    {jour:"2026-11-15",heure:"10:00",type:"video",titre:"La vidéo du week-end",sous:"Avec votre café du dimanche."}
+    {jour:"2026-11-17",heure:"17:00",type:"video",titre:"La vidéo du mardi",sous:"Une maison. Trop d’opinions."},
+    {jour:"2026-11-19",heure:"17:00",type:"video",titre:"La vidéo du jeudi",sous:"Une autre maison. Encore plus d’opinions."},
+    {jour:"2026-11-19",heure:"20:00",type:"direct",titre:"GTA 6 · Vice City",sous:"Le soir de la sortie, on visite les intérieurs et les quartiers",note:"Twitch · TikTok · YouTube",vedette:true},
+    {jour:"2026-11-21",heure:"20:00",type:"direct",titre:"Visite libre",sous:"Les pires listings de la semaine",note:"Twitch · TikTok · YouTube",vedette:true},
+    {jour:"2026-11-22",heure:"10:00",type:"video",titre:"La vidéo du week-end",sous:"Avec votre café du dimanche."}
   ]
 };
 if(typeof module!=="undefined")module.exports.HORAIRE=HORAIRE;
