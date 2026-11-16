@@ -38,6 +38,12 @@ var MAISONS=[
 ];
 
 var CARNET=[
+  {slug:"staunton",mois:"2026-11",nom:"La prison à l’encan",lieu:"Staunton, Virginie",annee:"Mise : 50 000 $",cat:"Historique",
+   photo:"/images/staunton.jpg",credit:"Photo : Enlisted Auctions",
+   lien:"https://bid.enlistedauctions.com/ui/auctions/172450/26788653",
+   accroche:"Une prison au centre-ville. Pour l’instant, le prix d’un pick-up.",
+   lignes:["Ancien palais de justice et prison du comté d’Augusta. 33 273 pieds carrés, en plein centre-ville. À l’encan.", "Au 16 novembre, la mise la plus haute est rendue à 50 000 $ US. L’évaluation municipale : 1,16 M$. Les mises ferment le 9 décembre.", "", "C’est le comté qui vend. Avec la prison. Puis tout ce qu’il y a dedans.", "C’est écrit dans l’annonce : le contenu est inclus.", "", "La salle d’audience : tapis bleu, bois blond, néons. Enfin un bureau à la maison avec du prestige.", "Mention honorable au tapis bleu. Il en a vu, des affaires.", "", "Les archives, c’est des étagères à dossiers collées sur les cellules.", "Le rangement est optimisé. Au moins, les dossiers peuvent pas s’évader.", "", "Une cellule avec des tablettes dedans, puis un trou dans le mur. Walk-in avec barreaux.", "Le trou, on pose pas de questions.", "", "La salle commune a des tables de pique-nique boulonnées au plancher. Le party de Noël devait être tranquille.", "", "Note du photographe : les photos sont bien faites, puis c’est ça qui est weird. Ciel bleu, HDR propre, tout est blanc puis droit. On dirait une annonce de condo.", "Mais dans un condo, ta porte de chambre se barre pas de l’extérieur.", "", "Les petits caractères : zone inondable, rapports d’amiante, des sections sans gicleurs. Vendu tel quel, sans garantie.", "", "C’est pour quelqu’un qui veut un hôtel thématique. Ou qui a vraiment beaucoup de dossiers.", "Mais pour vrai : un vieux bâtiment public en plein centre-ville historique, avec cette vue-là sur le toit. Quelqu’un va en faire de quoi de beau. J’espère juste qu’il va garder une cellule."],
+   infos:["Mise actuelle 50 000 $ US (16 nov.)","33 273 pi²","Fin des mises : 9 déc. 2026","Photos : Enlisted Auctions"]},
   {slug:"stanley",nom:"Le chalet au bord du cliff",lieu:"Stanley, Idaho",annee:"2 995 000 $",cat:"Chalet",
    photo:"/images/stanley-cliff.jpg",credit:"Photo : Sun Valley Real Estate via Zillow",
    lien:"https://www.zillow.com/homedetails/325-Sawtooth-Ridge-Rd-Stanley-ID-83278/466126930_zpid/",
