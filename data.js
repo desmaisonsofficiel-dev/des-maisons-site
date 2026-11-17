@@ -2,6 +2,9 @@
 // Pour ajouter une maison : copier un bloc, changer les champs, puis lancer « node build.js ».
 // slug = l'adresse de la page (desmaisons.ca/<slug>)
 var MAISONS=[
+  {slug:"spring-texas",mois:"2026-11",sortie:"2026-11-17T17:00:00-05:00",nom:"Le village privé à 10,75 M$",photo:"/images/spring-tx.jpg",credit:"Photo : vue aérienne via Zillow",theme:"Manoir",lieu:"Spring, Texas",prix:"10 750 000 $ US",annee:"1999",
+   texte:"Un manoir de 30 000 pieds carrés, cinq « mini-manoirs » tout le tour, une salle de banquet, une cuisine commerciale, 22 places de garage puis un lac. En vente depuis 2023 : 12,8 M$, 15 M$, 11 M$, 12,5 M$, 10,75 M$. Le prix a changé plus souvent que les draps.",
+   statut:"En ligne",video:"https://www.youtube.com/watch?v=9Bmf58RHO-I",episode:"17 nov. 2026",annonce:"https://www.zillow.com/homedetails/19525-Doerre-Rd-Spring-TX-77379/161415524_zpid/"},
   {slug:"milwaukee",mois:"2026-11",sortie:"2026-11-12T17:00:00-05:00",nom:"Le salon de la plume rouge",photo:"/images/milwaukee.jpg",credit:"Photo : annonce via Zillow",theme:"Déco",lieu:"Milwaukee, Wisconsin",prix:"199 900 $ US",annee:"1948",
    texte:"Une maison de 1948 à 199 900 $. Noir, blanc, rouge et chrome partout : des plumes rouges dans un vase, des arbres blancs en plastique, des rideaux en fils d’argent, puis un sous-sol avec cinéma et bar. Quelqu’un a décoré avec une seule palette et beaucoup de conviction.",
    statut:"En ligne",video:"https://www.youtube.com/watch?v=PRNVxG5TekI",episode:"12 nov. 2026",annonce:"https://www.zillow.com/homedetails/3286-N-60th-St-Milwaukee-WI-53216/40440702_zpid/"},
@@ -87,7 +90,7 @@ if(typeof module!=="undefined")module.exports={MAISONS,CARNET};
 var HORAIRE={
   semaine:"Semaine du 16 novembre",
   items:[
-    {jour:"2026-11-17",heure:"17:00",type:"video",titre:"La vidéo du mardi",sous:"Une maison. Trop d’opinions."},
+    {jour:"2026-11-17",heure:"17:00",type:"video",titre:"Le village privé à 10,75 M$",sous:"Un manoir, cinq mini-manoirs, un lac."},
     {jour:"2026-11-19",heure:"17:00",type:"video",titre:"La vidéo du jeudi",sous:"Une autre maison. Encore plus d’opinions."},
     {jour:"2026-11-19",heure:"20:00",type:"direct",titre:"GTA 6 · Vice City",sous:"Le soir de la sortie, on visite les intérieurs et les quartiers",note:"Twitch · TikTok · YouTube",vedette:true},
     {jour:"2026-11-21",heure:"20:00",type:"direct",titre:"Visite libre",sous:"Les pires listings de la semaine",note:"Twitch · TikTok · YouTube",vedette:true},
