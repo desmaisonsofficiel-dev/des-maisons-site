@@ -311,3 +311,14 @@ footer{border-top:2px solid var(--ligne);padding-block:28px 40px;color:var(--gri
 @media (max-width:640px){.discord-carte{grid-template-columns:1fr}.discord-carte .btn{justify-self:start}}
 .lien-dc{border-color:#5865f2}
 .lien .nouveau{font:500 11px var(--mono);letter-spacing:.1em;background:var(--rouge);color:#fff;padding:2px 6px;margin-left:-4px}
+/* Aperçu accueil + pages complètes */
+.voir-tout{display:block;margin-top:20px;padding:16px 20px;text-align:center;border:2px solid var(--jaune);color:var(--jaune);font-family:var(--display);font-size:clamp(22px,4vw,30px);text-decoration:none;letter-spacing:.01em}
+.voir-tout:hover{background:var(--jaune);color:var(--noir)}
+.billet.court .corps{gap:8px}
+.billet.court a.lire{align-self:flex-start;text-decoration:none}
+.outils{display:grid;gap:12px;margin-bottom:18px}
+.outils input[type=search]{font:400 16px var(--body);color:var(--creme);background:var(--carton);border:2px solid var(--ligne);padding:12px 14px;max-width:420px}
+.outils input[type=search]:focus{border-color:var(--jaune);outline:none}
+.liste-page{padding-block:24px 48px}
+.liste-page h1{font-size:clamp(56px,12vw,104px);color:var(--jaune)}
+.liste-page .intro{color:var(--gris);max-width:60ch;margin:6px 0 18px}

@@ -56,21 +56,21 @@
 </nav>
 
 <main>
-  <section id="maisons">
+  <section id="maisons" data-limite="3">
     <div class="wrap">
       <div class="tete">
         <div>
-          <div class="label">Inventaire</div>
+          <div class="label">Les derniers épisodes</div>
           <h2>Les maisons.</h2>
-          <p>Toutes les propriétés passées sous la loupe. Une maison, un épisode.</p>
+          <p>Une maison, un épisode. Voici les trois dernières.</p>
         </div>
-        <div class="filtres" id="filtres" role="group" aria-label="Filtrer les maisons"></div>
       </div>
       <div class="grille" id="grille"></div>
+      <a class="voir-tout" href="/maisons/">Voir les <span data-nb-maisons></span> maisons →</a>
     </div>
   </section>
 
-  <section id="carnet">
+  <section id="carnet" data-limite="3">
     <div class="wrap">
       <div class="tete">
         <div>
@@ -78,9 +78,9 @@
           <h2>Le carnet.</h2>
           <p>Des maisons qui n'ont pas eu d'épisode. Elles méritaient quand même qu'on s'arrête.</p>
         </div>
-        <div class="filtres" id="filtres-carnet" role="group" aria-label="Filtrer le carnet"></div>
       </div>
       <div class="carnet" id="carnet-liste"></div>
+      <a class="voir-tout" href="/carnet/">Voir tout le carnet (<span data-nb-carnet></span> billets) →</a>
     </div>
   </section>
 
@@ -346,47 +346,11 @@
 </footer>
 
 <script src="/data.js"></script>
+<script src="/listes.js"></script>
 <script>
 const LOGO=document.querySelector(".logo").src;
-// Façade dessinée en attendant une vraie photo
-function facade(cv,seed){
-  const r=n=>{seed=(seed*9301+49297)%233280;return seed/233280*n};
-  const w=cv.width=400,h=cv.height=300,c=cv.getContext("2d");
-  c.fillStyle=["#2c2925","#3a2f22","#1f2a2e"][Math.floor(r(3))];c.fillRect(0,0,w,h);
-  c.fillStyle="#181614";c.fillRect(0,h*.78,w,h);
-  const bx=60+r(40),bw=w-bx*2,by=h*.38+r(20);
-  c.fillStyle="#efe6d2";c.globalAlpha=.14;c.fillRect(bx,by,bw,h*.78-by);
-  c.beginPath();c.moveTo(bx-14,by);c.lineTo(w/2,by-50-r(40));c.lineTo(bx+bw+14,by);c.fill();
-  c.globalAlpha=1;c.fillStyle="#f5c51a";
-  const n=2+Math.floor(r(3));
-  for(let i=0;i<n;i++){c.globalAlpha=.4+r(.5);c.fillRect(bx+20+i*(bw-40)/n,by+24,22,26)}
-  c.globalAlpha=1;
-}
 
 
-const filtres=document.getElementById("filtres"),grille=document.getElementById("grille");
-let theme="Tout";
-["Tout",...new Set(MAISONS.map(m=>m.theme))].forEach(t=>{
-  const b=document.createElement("button");b.type="button";b.textContent=t;b.id="f-"+t;
-  b.setAttribute("aria-pressed",t===theme);
-  b.onclick=()=>{theme=t;filtres.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x.textContent===t));rendre()};
-  filtres.appendChild(b);
-});
-function rendre(){
-  grille.innerHTML="";
-  filtres.hidden=MAISONS.length===0;
-  if(!MAISONS.length){grille.innerHTML='<p class="vide-inv">Les premières fiches arrivent bientôt. Le café est en train de couler.</p>';return}
-  MAISONS.filter(m=>theme==="Tout"||m.theme===theme).forEach(m=>{
-    const n=MAISONS.indexOf(m),pret=m.statut==="En ligne",el=document.createElement("article");el.className="maison";
-    el.innerHTML=`<div class="photo">${m.photo?`<img src="${m.photo}" alt="${m.nom}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><span class="credit">${m.credit||""}</span>`:"<canvas></canvas>"}${m.sortie&&Date.now()<Date.parse(m.sortie)?`<span class="prix">VIDÉO DISPONIBLE À ${new Date(m.sortie).toLocaleTimeString("fr-CA",{timeZone:"America/Toronto",hour:"numeric"}).replace(" h"," H").toUpperCase()}</span>`:`<span class="prix ${pret?"":"bientot"}">${pret?"EN LIGNE":"BIENTÔT"}</span>`}</div>
-      <div class="corps"><div class="label">${m.theme}${m.lieu?" · "+m.lieu:""}</div><h3><a href="/${m.slug}/" style="text-decoration:none;color:inherit">${m.nom}</a></h3>${m.enVente?`<span class="cv-mini">En vente depuis ${Math.max(0,Math.floor((Date.now()-new Date(m.enVente+"T00:00:00"))/864e5))} jours</span>`:""}<p>${m.texte}</p>
-      ${m.prix?`<div class="label" style="color:var(--jaune)">${m.prix}${m.annee?" · "+m.annee:""}</div>`:""}
-      <div class="fiche"><span class="label">${m.episode?"Épisode du "+m.episode:"Fiche "+String(n+1).padStart(3,"0")}</span><span style="display:flex;gap:14px;flex-wrap:wrap">${m.annonce?`<a href="${m.annonce}" target="_blank" rel="noopener">L’annonce</a>`:""}${pret?`<a href="/${m.slug}/">La fiche + l’épisode →</a>`:'<span class="label">À venir</span>'}</span></div></div>`;
-    grille.appendChild(el);
-    const cv=el.querySelector("canvas");if(cv)facade(cv,n*977+13);
-  });
-}
-rendre();
 
 // Lots déjà vendus : ajouter les numéros ici (ex. [1,7,42])
 const VENDUS=[];
@@ -464,35 +428,6 @@ document.querySelectorAll("[data-copier]").forEach(b=>b.addEventListener("click"
   try{navigator.clipboard.writeText(t).then(ok,fallback)}catch(e){fallback()}
 }));
 
-// LE CARNET — un billet par maison. Ligne vide = "" ; la dernière ligne est la phrase sincère.
-
-const fc=document.getElementById("filtres-carnet"),cl=document.getElementById("carnet-liste");
-let catC="Tout";
-if(new Set(CARNET.map(b=>b.cat)).size<2)fc.hidden=true;
-["Tout",...new Set(CARNET.map(b=>b.cat))].forEach(t=>{
-  const b=document.createElement("button");b.type="button";b.textContent=t;b.id="fc-"+t.replace(/\s/g,"-");
-  b.setAttribute("aria-pressed",t===catC);
-  b.onclick=()=>{catC=t;fc.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x.textContent===t));rendreCarnet()};
-  fc.appendChild(b);
-});
-function rendreCarnet(){
-  cl.innerHTML="";
-  CARNET.filter(b=>catC==="Tout"||b.cat===catC).forEach(b=>{
-    const n=CARNET.indexOf(b),el=document.createElement("article");el.className="billet";
-    const dernier=b.lignes.length-1;
-    const lignes=b.lignes.map((l,i)=>l===""?'<p class="vide"></p>':`<p class="${i===dernier?"sincere":""}">${l}</p>`).join("");
-    el.innerHTML=`<div class="photo">${b.photo?`<img src="${b.photo}" alt="${b.nom}, ${b.lieu}"><span class="credit">${b.credit||""}</span>`:"<canvas></canvas>"}<span class="prix">${b.annee.toUpperCase()}</span></div>
-      <div class="corps"><div class="label">${b.cat} · ${b.lieu}</div><h3>${b.nom}</h3><p class="accroche">${b.accroche}</p>
-      <div class="texte" id="texte-${n}" hidden>${lignes}</div>
-      <button class="lire" type="button" aria-expanded="false" aria-controls="texte-${n}">Lire la fiche</button>
-      <div class="infos">${b.infos.map(x=>`<span>${x}</span>`).join("")}<span>Billet n° ${String(n+1).padStart(3,"0")}</span><a href="/${b.slug}/" style="color:var(--creme)">Page de la maison →</a>${b.lien?`<a href="${b.lien}" target="_blank" rel="noopener" style="color:var(--jaune)">Voir l\'annonce →</a>`:""}</div></div>`;
-    cl.appendChild(el);
-    const cv=el.querySelector("canvas");if(cv)facade(cv,n*313+71);
-    const btn=el.querySelector(".lire"),tx=el.querySelector(".texte");
-    btn.onclick=()=>{const o=tx.hidden;tx.hidden=!o;btn.setAttribute("aria-expanded",o);btn.textContent=o?"Refermer":"Lire la fiche"};
-  });
-}
-rendreCarnet();
 // Horaire de la semaine
 (function(){
   if(typeof HORAIRE==="undefined")return;

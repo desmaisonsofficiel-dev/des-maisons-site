@@ -118,9 +118,47 @@ for(const m of tout){
   fs.mkdirSync(path.join(__dirname,m.slug),{recursive:true});
   fs.writeFileSync(path.join(__dirname,m.slug,"index.html"),page(m));
 }
+
+// Pages complètes : /maisons/ et /carnet/
+function listePage(type){
+  const ep=type==="maisons";
+  const titre=ep?"Toutes les maisons | Des Maisons.":"Le carnet | Des Maisons.";
+  const desc=ep?"Toutes les maisons analysées dans les épisodes de Des Maisons.":"Le carnet de Des Maisons : des maisons weird qui n’ont pas eu d’épisode.";
+  const section=ep?`<section id="maisons" class="liste-page">
+    <div class="label">Inventaire complet</div>
+    <h1>Les maisons.</h1>
+    <p class="intro">Toutes les propriétés passées sous la loupe, de la plus récente à la plus ancienne. <span data-nb-maisons></span> épisodes.</p>
+    <div class="outils"><input type="search" placeholder="Chercher une ville ou un nom…" aria-label="Chercher une maison"><div class="filtres" role="group" aria-label="Filtrer par thème"></div></div>
+    <div class="grille" id="grille"></div>
+  </section>`:`<section id="carnet" class="liste-page">
+    <div class="label">Le carnet</div>
+    <h1>Le carnet.</h1>
+    <p class="intro">Des maisons qui n’ont pas eu d’épisode. Elles méritaient quand même qu’on s’arrête. <span data-nb-carnet></span> billets.</p>
+    <div class="outils"><input type="search" placeholder="Chercher une ville ou un nom…" aria-label="Chercher un billet"><div class="filtres" role="group" aria-label="Filtrer par catégorie"></div></div>
+    <div class="carnet" id="carnet-liste"></div>
+  </section>`;
+  return `${tete({titre,desc,image:SITE+"/images/edd9d7ae11.jpg",url:SITE+"/"+type+"/"})}
+<body>
+<div class="wrap barre"><a href="/"><img src="/images/edd9d7ae11.jpg" alt="">Des Maisons.</a><a class="retour" href="/${ep?"carnet":"maisons"}/">${ep?"Le carnet →":"Les maisons →"}</a></div>
+<main class="wrap">
+  ${section}
+  <section style="padding-block:24px 48px;border-top:0">${infolettre()}</section>
+</main>
+<footer class="wrap">
+  <span>© 2026 Des Maisons. Une production <a href="https://boulayphotographie.ca" target="_blank" rel="noopener">Boulay Photographie</a>.</span>
+  <span><a href="/">desmaisons.ca</a></span>
+</footer>
+<script src="/data.js"></script>
+<script src="/listes.js"></script>
+<script src="/site.js"></script>
+</body>
+</html>
+`;
+}
+for(const t of ["maisons","carnet"]){fs.mkdirSync(path.join(__dirname,t),{recursive:true});fs.writeFileSync(path.join(__dirname,t,"index.html"),listePage(t))}
 const parMois={};for(const m of tout){const k=m.mois||"2026-10";(parMois[k]=parMois[k]||[]).push(m.slug)}
 fs.writeFileSync(path.join(__dirname,"netlify/functions/slugs.mjs"),"export default "+JSON.stringify(parMois)+";\n");
-const urls=[SITE+"/",...tout.map(m=>`${SITE}/${m.slug}/`)];
+const urls=[SITE+"/",SITE+"/maisons/",SITE+"/carnet/",...tout.map(m=>`${SITE}/${m.slug}/`)];
 fs.writeFileSync(path.join(__dirname,"sitemap.xml"),`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u=>`  <url><loc>${u}</loc></url>`).join("\n")}\n</urlset>\n`);
 fs.writeFileSync(path.join(__dirname,"robots.txt"),`User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`);
 console.log("Pages générées :",tout.map(m=>"/"+m.slug).join(" "));
