@@ -40,17 +40,22 @@
     const lim=+sm.dataset.limite||0;
     const em=outils(sm.querySelector(".outils"),MAISONS,"theme",rendreM);
     function rendreM(){
+      grille.className="carnet";
       grille.innerHTML="";
       let l=MAISONS.filter(m=>garder(em,m,"theme"));
       if(lim)l=l.slice(0,lim);
       if(!l.length){grille.innerHTML='<p class="vide-inv">Aucune maison ne correspond. Essaie un autre mot.</p>';return}
       l.forEach(m=>{
-        const n=MAISONS.indexOf(m),pret=m.statut==="En ligne",el=document.createElement("article");el.className="maison";
+        const n=MAISONS.indexOf(m),pret=m.statut==="En ligne",el=document.createElement("article");el.className="billet episode"+(lim?" court":"");
         const attente=m.sortie&&Date.now()<Date.parse(m.sortie);
-        el.innerHTML=`<div class="photo">${m.photo?`<img src="${m.photo}" alt="${m.nom}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><span class="credit">${m.credit||""}</span>`:"<canvas></canvas>"}${attente?`<span class="prix">VIDÉO DISPONIBLE À ${new Date(m.sortie).toLocaleTimeString("fr-CA",{timeZone:"America/Toronto",hour:"numeric"}).replace(" h"," H").toUpperCase()}</span>`:`<span class="prix ${pret?"":"bientot"}">${pret?"EN LIGNE":"BIENTÔT"}</span>`}</div>
-          <div class="corps"><div class="label">${m.theme}${m.lieu?" · "+m.lieu:""}</div><h3><a href="/${m.slug}/" style="text-decoration:none;color:inherit">${m.nom}</a></h3>${m.enVente?`<span class="cv-mini">En vente depuis ${Math.max(0,Math.floor((Date.now()-new Date(m.enVente+"T00:00:00"))/864e5))} jours</span>`:""}<p>${m.texte}</p>
-          ${m.prix?`<div class="label" style="color:var(--jaune)">${m.prix}${m.annee?" · "+m.annee:""}</div>`:""}
-          <div class="fiche"><span class="label">${m.episode?"Épisode du "+m.episode:"Fiche "+String(n+1).padStart(3,"0")}</span><span style="display:flex;gap:14px;flex-wrap:wrap">${m.annonce?`<a href="${m.annonce}" target="_blank" rel="noopener">L’annonce</a>`:""}${pret?`<a href="/${m.slug}/">La fiche + l’épisode →</a>`:'<span class="label">À venir</span>'}</span></div></div>`;
+        const tag=attente?"VIDÉO DISPONIBLE À "+new Date(m.sortie).toLocaleTimeString("fr-CA",{timeZone:"America/Toronto",hour:"numeric"}).replace(" h"," H").toUpperCase():(m.prix||"").toUpperCase();
+        const accroche=m.accroche||((m.texte||"").match(/^.*?[.!?](\s|$)/)||[m.texte])[0].trim();
+        const jours=m.enVente?`<span class="cv-mini">En vente depuis ${Math.max(0,Math.floor((Date.now()-new Date(m.enVente+"T00:00:00"))/864e5))} jours</span>`:"";
+        el.innerHTML=`<div class="photo">${m.photo?`<img src="${m.photo}" alt="${m.nom}, ${m.lieu}" loading="lazy"><span class="credit">${m.credit||""}</span>`:"<canvas></canvas>"}${tag?`<span class="prix">${tag}</span>`:""}</div>
+          <div class="corps"><div class="label">${m.theme}${m.lieu?" · "+m.lieu:""}${m.episode?" · Épisode du "+m.episode:""}</div><h3><a href="/${m.slug}/" style="text-decoration:none;color:inherit">${m.nom}</a></h3>${jours}
+          ${lim?`<p class="accroche">${accroche}</p><a class="lire" href="/${m.slug}/">${pret?"La fiche + l’épisode →":"Voir la fiche →"}</a>`:
+          `<p class="accroche">${m.texte}</p>
+          <div class="infos">${m.prix?`<span>${m.prix}${m.annee?" · "+m.annee:""}</span>`:""}<span>${m.episode?"Épisode du "+m.episode:"Fiche "+String(n+1).padStart(3,"0")}</span>${pret?`<a href="/${m.slug}/" style="color:var(--creme)">La fiche + l’épisode →</a>`:""}${m.annonce?`<a href="${m.annonce}" target="_blank" rel="noopener" style="color:var(--jaune)">Voir l’annonce →</a>`:""}</div>`}</div>`;
         grille.appendChild(el);
         const cv=el.querySelector("canvas");if(cv)facade(cv,n*977+13);
       });

@@ -322,3 +322,4 @@ footer{border-top:2px solid var(--ligne);padding-block:28px 40px;color:var(--gri
 .liste-page{padding-block:24px 48px}
 .liste-page h1{font-size:clamp(56px,12vw,104px);color:var(--jaune)}
 .liste-page .intro{color:var(--gris);max-width:60ch;margin:6px 0 18px}
+.billet.episode:not(.court) .accroche{font-weight:400;font-size:17px;line-height:1.5}
