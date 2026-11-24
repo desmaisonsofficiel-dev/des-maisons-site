@@ -2,6 +2,9 @@
 // Pour ajouter une maison : copier un bloc, changer les champs, puis lancer « node build.js ».
 // slug = l'adresse de la page (desmaisons.ca/<slug>)
 var MAISONS=[
+  {slug:"orkelljunga",accroche:"Une cuisine noire et or avec une enseigne ROLEX au-dessus des armoires. Pour savoir l’heure, j’imagine.",mois:"2026-11",nom:"La cuisine Rolex",photo:"/images/orkelljunga.jpg",credit:"Photo : annonce via Erik Olsson",theme:"Déco",lieu:"Örkelljunga, Suède",prix:"Mise à prix 3 895 000 SEK",annee:"1994",
+   texte:"Une villa de 100 mètres carrés en Suède, rénovée de 2022 à 2024. Cuisine noire avec des détails dorés partout, lustres en tubes dorés, lions dorés dans les vitrines, tabourets en velours, deux bouteilles de champagne sur l’îlot, puis le mot ROLEX en lettres dorées au-dessus des armoires. L’annonce parle de « détails dorés ». C’est une façon de le dire.",
+   statut:"En ligne",video:"https://www.youtube.com/watch?v=atC1tc-79lI",episode:"24 nov. 2026",annonce:"https://www.erikolsson.se/homes/Villa-4rum-Hallingaliden-20A-and-20B-Orkelljunga-Orkelljunga-kommun-6017171"},
   {slug:"las-vegas-christy",accroche:"Deux têtes de bison, Betty Boop deux fois, puis des tournesols sur le dessus des armoires.",mois:"2026-11",sortie:"2026-11-24T17:00:00-05:00",nom:"Le musée de Betty Boop",photo:"/images/las-vegas-christy.jpg",credit:"Photo : LVR via Zillow",theme:"Déco",lieu:"Las Vegas, Nevada",prix:"459 999 $ US",annee:"1992",
    texte:"Un plain-pied de 1992 à Las Vegas : plafonds cathédrale, travertin, foyer au gaz à trois faces. Puis, par-dessus ça, deux têtes de bison, Betty Boop qui tient un plateau, des figurines dans des vitrines, des tournesols sur le dessus des armoires et des chaises en plastique transparent. Affichée 575 000 $ en 2024, rendue à 459 999 $.",
    statut:"En ligne",video:"https://www.youtube.com/watch?v=2Xi32-DuAFs",episode:"24 nov. 2026",annonce:"https://www.zillow.com/homedetails/1111-N-Christy-Ln-Las-Vegas-NV-89110/7030937_zpid/"},
