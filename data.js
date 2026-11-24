@@ -2,6 +2,9 @@
 // Pour ajouter une maison : copier un bloc, changer les champs, puis lancer « node build.js ».
 // slug = l'adresse de la page (desmaisons.ca/<slug>)
 var MAISONS=[
+  {slug:"cleveland-heights",accroche:"Vendue 195 000 $ en 2024. Deux mois plus tard, offerte en location à 3 400 $ par mois.",mois:"2026-11",nom:"Le cottage en brique de Cleveland",photo:"/images/cleveland-heights.jpg",credit:"Photo : annonce via Zillow",theme:"Cottage",lieu:"Cleveland Heights, Ohio",prix:"Vendue 195 000 $ US",annee:"1934",
+   texte:"Un colonial tout en brique de 1934 : toit en tuiles rouges, porte en arche, deux porches grillagés, 2 121 pieds carrés, 3 chambres, 3 salles de bain dont 2 demi. Vendue 195 000 $ en juillet 2024. En octobre, offerte en location à 3 400 $ par mois.",
+   statut:"En ligne",video:"https://www.youtube.com/watch?v=gK2AJ6hohms",episode:"24 nov. 2026",annonce:"https://www.zillow.com/homedetails/1254-Castleton-Rd-Cleveland-Heights-OH-44121/33649885_zpid/"},
   {slug:"spring-texas",accroche:"Un manoir, cinq mini-manoirs, un lac. Le prix a changé plus souvent que les draps.",mois:"2026-11",sortie:"2026-11-17T17:00:00-05:00",nom:"Le village privé à 10,75 M$",photo:"/images/spring-tx.jpg",credit:"Photo : vue aérienne via Zillow",theme:"Manoir",lieu:"Spring, Texas",prix:"10 750 000 $ US",annee:"1999",
    texte:"Un manoir de 30 000 pieds carrés, cinq « mini-manoirs » tout le tour, une salle de banquet, une cuisine commerciale, 22 places de garage puis un lac. En vente depuis 2023 : 12,8 M$, 15 M$, 11 M$, 12,5 M$, 10,75 M$. Le prix a changé plus souvent que les draps.",
    statut:"En ligne",video:"https://www.youtube.com/watch?v=9Bmf58RHO-I",episode:"17 nov. 2026",annonce:"https://www.zillow.com/homedetails/19525-Doerre-Rd-Spring-TX-77379/161415524_zpid/"},
