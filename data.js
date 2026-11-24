@@ -2,6 +2,9 @@
 // Pour ajouter une maison : copier un bloc, changer les champs, puis lancer « node build.js ».
 // slug = l'adresse de la page (desmaisons.ca/<slug>)
 var MAISONS=[
+  {slug:"las-vegas-christy",accroche:"Deux têtes de bison, Betty Boop deux fois, puis des tournesols sur le dessus des armoires.",mois:"2026-11",sortie:"2026-11-24T17:00:00-05:00",nom:"Le musée de Betty Boop",photo:"/images/las-vegas-christy.jpg",credit:"Photo : LVR via Zillow",theme:"Déco",lieu:"Las Vegas, Nevada",prix:"459 999 $ US",annee:"1992",
+   texte:"Un plain-pied de 1992 à Las Vegas : plafonds cathédrale, travertin, foyer au gaz à trois faces. Puis, par-dessus ça, deux têtes de bison, Betty Boop qui tient un plateau, des figurines dans des vitrines, des tournesols sur le dessus des armoires et des chaises en plastique transparent. Affichée 575 000 $ en 2024, rendue à 459 999 $.",
+   statut:"En ligne",video:"https://www.youtube.com/watch?v=2Xi32-DuAFs",episode:"24 nov. 2026",annonce:"https://www.zillow.com/homedetails/1111-N-Christy-Ln-Las-Vegas-NV-89110/7030937_zpid/"},
   {slug:"helena",accroche:"Des colonnes grecques, 7 acres, une piscine. Le prix vient de baisser de 190 000 $ d’un coup.",mois:"2026-11",nom:"Le temple grec de l’Arkansas",photo:"/images/helena.jpg",credit:"Photo : annonce via Zillow",theme:"Manoir",lieu:"Helena, Arkansas",prix:"375 000 $ US",annee:"1949",
    texte:"Un plain-pied en brique avec une entrée à colonnes grecques, 5 983 pieds carrés, 4 chambres, 6 salles de bain, une piscine creusée, un bar, puis une cabane dans les arbres sur 7 acres. Affichée à 565 000 $ en octobre, tombée à 375 000 $ en novembre. Achetée 452 125 $ en 2023. C’est une vente à découvert.",
    statut:"En ligne",video:"https://www.youtube.com/watch?v=gK2AJ6hohms",episode:"24 nov. 2026",annonce:"https://www.zillow.com/homedetails/310-Waverly-Wood-Ln-Helena-AR-72342/76230679_zpid/"},
