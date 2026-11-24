@@ -2,6 +2,9 @@
 // Pour ajouter une maison : copier un bloc, changer les champs, puis lancer « node build.js ».
 // slug = l'adresse de la page (desmaisons.ca/<slug>)
 var MAISONS=[
+  {slug:"helena",accroche:"Des colonnes grecques, 7 acres, une piscine. Le prix vient de perdre 190 000 $ en une journée.",mois:"2026-11",nom:"Le temple grec de l’Arkansas",photo:"/images/helena.jpg",credit:"Photo : annonce via Zillow",theme:"Manoir",lieu:"Helena, Arkansas",prix:"375 000 $ US",annee:"1949",
+   texte:"Un plain-pied en brique avec une entrée à colonnes grecques, 5 983 pieds carrés, 4 chambres, 6 salles de bain, une piscine creusée, un bar, puis une cabane dans les arbres sur 7 acres. Affichée à 565 000 $ en octobre, tombée à 375 000 $ en novembre. Vendue à perte : 452 125 $ en 2023.",
+   statut:"En ligne",video:"https://www.youtube.com/watch?v=gK2AJ6hohms",episode:"24 nov. 2026",annonce:"https://www.zillow.com/homedetails/310-Waverly-Wood-Ln-Helena-AR-72342/76230679_zpid/"},
   {slug:"cleveland-heights",accroche:"Vendue 195 000 $ en 2024. Deux mois plus tard, offerte en location à 3 400 $ par mois.",mois:"2026-11",nom:"Le cottage en brique de Cleveland",photo:"/images/cleveland-heights.jpg",credit:"Photo : annonce via Zillow",theme:"Cottage",lieu:"Cleveland Heights, Ohio",prix:"Vendue 195 000 $ US",annee:"1934",
    texte:"Un colonial tout en brique de 1934 : toit en tuiles rouges, porte en arche, deux porches grillagés, 2 121 pieds carrés, 3 chambres, 3 salles de bain dont 2 demi. Vendue 195 000 $ en juillet 2024. En octobre, offerte en location à 3 400 $ par mois.",
    statut:"En ligne",video:"https://www.youtube.com/watch?v=gK2AJ6hohms",episode:"24 nov. 2026",annonce:"https://www.zillow.com/homedetails/1254-Castleton-Rd-Cleveland-Heights-OH-44121/33649885_zpid/"},
